@@ -1,0 +1,48 @@
+/* Contenedor principal */
+.testimonials {
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 4em;
+    padding: 0 0 40px;
+    width: min(calc(100% - 2rem), 1120px);
+  }
+}
+
+/* Tarjeta individual de cada testimonio */
+.testimonial-card {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  flex: 1 0 332px;
+  max-width: 100%;
+  padding: 2em;
+  background-color: #fff;
+}
+
+/* Perfil del usuario */
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.profile img {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile span {
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  color: #666;
+}
+
+/* Estrellas */
+.stars {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin: 0.5em 0;
+}

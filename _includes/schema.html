@@ -1,0 +1,213 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ 'img/logo-quality.avif' | absolute_url }}",
+        "width": 179,
+        "height": 75,
+        "caption": "{{ site.title }} logo"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ 'img/logo-quality.avif' | absolute_url }}",
+        "width": 179,
+        "height": 75
+      },
+      "description": "{{ site.description }}",
+      "foundingDate": "2010",
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Cleaning Excellence Way",
+          "addressLocality": "Columbus",
+          "addressRegion": "OH",
+          "postalCode": "43215",
+          "addressCountry": "US"
+        }
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "{{ site.phone }}",
+          "contactType": "customer service",
+          "areaServed": ["Columbus", "German Village", "Short North", "Victorian Village", "Dublin", "Worthington"],
+          "availableLanguage": ["English", "Spanish"],
+          "contactOption": ["TollFree", "HearingImpairedSupported"],
+          "hoursAvailable": "Mo-Su 00:00-23:59"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "{{ site.emergency_phone }}",
+          "contactType": "emergency",
+          "areaServed": ["Columbus", "German Village", "Short North", "Victorian Village", "Dublin", "Worthington"],
+          "availableLanguage": ["English", "Spanish"],
+          "hoursAvailable": "Mo-Su 00:00-23:59"
+        }
+      ],
+      "sameAs": [
+        "{{ site.social.facebook }}",
+        "{{ site.social.twitter }}",
+        "{{ site.social.instagram }}",
+        "{{ site.social.linkedin }}"
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "Columbus",
+        "containedIn": {
+          "@type": "State",
+          "name": "Ohio"
+        }
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "publisher": {"@id": "{{ site.url }}/#organization"},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ site.url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+
+    {% if page.layout == "post" %}
+    ,{
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ page.url | absolute_url }}"
+      },
+      "headline": "{{ page.title }}",
+      "name": "{{ page.title }}",
+      "description": "{{ page.description }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ page.author }}",
+        {% if page.author_url %}"url": "{{ page.author_url }}",{% endif %}
+        {% if page.author_image %}"image": "{{ page.author_image }}",{% endif %}
+        "jobTitle": "Cleaning Expert"
+      },
+      "publisher": {"@id": "{{ site.url }}/#organization"},
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ page.hero | default: page.image | absolute_url }}",
+        "width": 1200,
+        "height": 630
+      },
+      {% if page.keywords %}"keywords": {{ page.keywords | jsonify }},{% endif %}
+      "articleBody": {{ page.content | strip_html | jsonify }},
+      "inLanguage": "en-US"
+    }
+    {% endif %}
+
+    {% if page.layout == "service" %}
+    ,{
+      "@type": "Service",
+      "name": "{{ page.title }}",
+      "description": "{{ page.description }}",
+      "provider": {"@id": "{{ site.url }}/#organization"},
+      "areaServed": {
+        "@type": "City",
+        "name": "Columbus",
+        "containedIn": {
+          "@type": "State",
+          "name": "Ohio"
+        }
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cleaning Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Regular Cleaning",
+              "description": "Weekly or bi-weekly cleaning service"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "129.00",
+              "priceCurrency": "USD"
+            }
+          }
+        ]
+      },
+      {% if page.faqs %}
+      "mainEntity": [
+        {% for faq in page.faqs %}
+        {
+          "@type": "Question",
+          "name": "{{ faq.pregunta }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ faq.respuesta }}"
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+      {% endif %}
+      "serviceType": "Cleaning Service",
+      "termsOfService": "{{ site.url }}/terms-of-service/",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1458",
+        "reviewCount": "892"
+      }
+    }
+    {% endif %}
+
+    {% if page.layout == "location" %}
+    ,{
+      "@type": "LocalBusiness",
+      "@id": "{{ page.url | absolute_url }}/#business",
+      "name": "{{ site.title }} - {{ page.title }}",
+      "image": "{{ page.hero | default: page.image | absolute_url }}",
+      "url": "{{ page.url | absolute_url }}",
+      "telephone": "{{ site.phone }}",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Cleaning Excellence Way",
+        "addressLocality": "{{ page.location | default: 'Columbus' }}",
+        "addressRegion": "OH",
+        "postalCode": "43215",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "{{ page.latitude | default: '39.9612' }}",
+        "longitude": "{{ page.longitude | default: '-82.9988' }}"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      ],
+      "sameAs": [
+        "{{ site.social.facebook }}",
+        "{{ site.social.twitter }}",
+        "{{ site.social.instagram }}"
+      ]
+    }
+    {% endif %}
+  ]
+}
+</script>

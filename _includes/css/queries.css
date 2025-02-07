@@ -1,0 +1,30 @@
+@media screen and (width <= 992px) {
+  .social-float.social-float {
+    left: 2px;
+  }
+
+  .social-float a svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer_links {
+    width: 100%;
+  }
+
+  .footer_links > div {
+    max-width: 100%;
+  }
+
+  .footer_legal {
+    flex: 1 0 280px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .two_columns {
+    flex-direction: row-reverse;
+  }
+}
+

@@ -1,0 +1,48 @@
+{% assign layout = page.layout %}
+{% case layout %}
+{% when "default" %}
+<header class="hero">
+  <div class="wrapper">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="desktop-title">Since | Agencia de Marketing Digital</span>
+        <span class="mobile-title">Agencia Since Marketing</span>
+      </h1>
+      <div class="hero-text">
+        <p >¡Hey, bienvenido!</p>
+        <p>Seguramente ya sabes a qué se dedica una agencia de marketing.</p>
+        <p>Nosotros lo hacemos muy bien...</p>
+        
+        {% include button.html text= "Clic y empecemos" %}
+        
+        <div class="services-link">
+          <a href="#servicios">Necesitas estos servicios</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vertical-text"></div>
+</header>
+
+{% when "post" %}
+<header class="wrapper bgr-hero flow header_post">
+  <h1>{{ page.h1 }}</h1>
+  <p>{{ page.excerpt }}</p>
+  <img src="{{ page.hero | relative_url }}" height="680" width="1280" loading="eager" alt="{{page.alt}}">
+</header>
+{% else %}
+<header class="header__services">
+  <div class="wrapper two_columns bgr-hero">
+    <div class="header__home--text">
+      <h1>{{ page.h1 }}</h1>
+      <h2>{{ page.h2 }}</h2>
+      <p>{{ page.excerpt }}</p>
+      {% if page.button %}
+      {% include button.html text="Take our service →" %}
+      {% endif %}
+    </div>
+
+    <img src="{{ page.hero | relative_url }}" height="600" width="600" alt="{{page.alt}}" loading="eager">
+  </div>
+</header>
+{% endcase %}

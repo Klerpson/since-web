@@ -1,0 +1,138 @@
+
+
+.section-center{
+  display: grid;
+  place-content: center;
+  place-items: center;
+}
+
+.highlight-border{
+  display: flex;
+  justify-content: flex-end;
+  width: min(calc(100% - 2rem), 1320px);
+  margin-inline: auto;
+
+}
+.highlight-border__radius {
+  border: 0.5rem solid var(--color-primary);
+  padding: 2em;
+  max-width: 580px;
+  border-radius: var(--radius-sm);
+  left: 2px;
+}
+
+.card-content{
+  width: 600px;
+  display: grid;
+}
+
+.highlight-card {
+  border: 0.5rem solid var(--color-primary);
+  padding: 2em;
+  width: min(100%, 1000px);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: var(--radius-lg);
+
+}
+
+.logo-rating {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.stars {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+}
+
+.team-img{
+  margin-top: auto;
+}
+
+.space-services {
+  background-image: url('../img/space-bg.avif');
+  background-size: cover;
+  background-position: center;
+  min-height: 120vh;
+
+  .text-left{
+    display: flex;
+    justify-content: flex-end;
+
+    .title-left{
+      max-width: 780px;
+    }
+  }
+}
+
+.title-main{
+  text-align: right;
+  width: min(100%, 780px);
+}
+
+.text_center__small{
+  width: min(100%, 520px);
+
+}
+.text_left__small{
+  width: min(100%, 420px);
+
+}
+
+.hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.hover:hover {
+  transform: translateY(-5px);
+}
+
+.hover:hover h1 {
+  color: var(--text-grey);
+}
+
+.hover:hover p {
+  color: var(--text-grey-dark);
+}
+
+.herramientas-marketing {
+  background-image: url('../img/herramientas-marquting-digital-since.avif');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+input:focus, 
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: var(--text-grey);
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: var(--text-grey);
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: var(--text-grey);
+}
+
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: var(--text-grey);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-grey);
+}
+

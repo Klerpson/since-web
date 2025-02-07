@@ -1,0 +1,159 @@
+h3 {
+  font-size: clamp(1.5rem, 1.269rem + 1.15vw, 2.25rem);
+  color: var(--text-primary);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  color: var(--grey-1);
+}
+
+h5 {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: var(--gris2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+ol li {
+  margin-left: 3em;
+  list-style: decimal;
+}
+
+::marker {
+  font-size: 2rem;
+  color: var(--color-secundario);
+  font-family: var(--fuente);
+}
+
+hr {
+  border: none; 
+  height: 2px;
+  max-width: 1200px; 
+  width: 90%; 
+  background: linear-gradient(
+    to right,
+    var(--color-accent),
+    var(--color-complement)
+  ); 
+  margin: 2rem auto;
+}
+
+table {
+  width: 100%;
+  margin: 2em 0 4em;
+}
+
+table tr {
+  border-bottom: 2px dotted var(--grey-1);
+  display: flex;
+  padding: 1.2em 0;
+  flex-wrap: wrap;
+  gap: 1em;
+  width: 100%;
+}
+
+table tr:nth-child(even) {
+  background-color: var(--bg-grey);
+}
+
+table th {
+  font-weight: 900;
+}
+
+table td,
+table th {
+  flex: 1 0 200px;
+}
+
+.bgr_cta {
+  background: rgb(0, 9, 4);
+  background: linear-gradient(
+    292deg,
+    rgba(0, 9, 4, 1) 0%,
+    rgba(11, 152, 103, 1) 100%,
+    rgba(6, 241, 124, 0.8603816526610644) 100%
+  );
+
+  h2 {
+    color: var(--color-white);
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.2em;
+    left: 0;
+    width: 7em;
+    height: 4px;
+    background-color: #ffce00;
+    border-radius: 2px;
+  }
+}
+
+.two_columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  
+
+  & > div {
+    flex: 1 0 280px; 
+    max-width: 600px;
+  }
+}
+
+.two_columns_left {
+  flex-direction: row-reverse;
+}
+
+.three_columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3em;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 4em;
+
+  & > div {
+    position: relative;
+    width: min(100%, 376px);
+    text-align: center;
+    display: grid;
+    gap: 2em;
+    place-items: center;
+    border-radius: var(--radius-cards);
+    overflow: hidden;
+
+    img {
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    img:hover {
+      transform: scale(1.015);
+    }
+
+    h4 {
+      font-size: 24px;
+      max-width: 296px;
+      margin: 0;
+    }
+  }
+}
+
+.text_center {
+  display: grid;
+  gap: 1em;
+  place-items: center;
+  width: min(100%, 720px);
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: 4em;
+}
+
+.highlight {
+  background-color: var(--color-primary);
+}

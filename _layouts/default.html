@@ -1,0 +1,31 @@
+---
+layout: compress
+---
+{% include head.html %}
+<body>
+  {% include cookie-banner.html %}
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSV8QLBF"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  {% include nav.html %}
+  {% include header.html %}
+  {{ content }}
+  {% include footer.html %}
+
+  <!-- scrool top -->
+  <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+  
+  <!-- Cookie Consent Script -->
+  <script src="{{ '/js/consent.js' | relative_url }}" defer></script>
+  <!-- Functions Scripts -->
+  <script src="{{ '/js/code.js' | relative_url }}" defer></script>
+  
+</body>
+</html>

@@ -1,0 +1,233 @@
+{% comment %}json-ld-generator.html{% endcomment %}
+{% assign current_date = 'now' | date: '%Y-%m-%d' %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "ProfessionalService", "CleaningService"],
+      "@id": "{{ site.url }}{{ site.baseurl }}/#business",
+      "name": "{{ site.title }}",
+      "alternateName": "Quality Standard OH",
+      "description": "{{ site.description }}",
+      "url": "{{ site.url }}{{ site.baseurl }}/",
+      "telephone": "{{ site.telefono }}",
+      "email": "{{ site.email }}",
+      "priceRange": "$$",
+      "foundingDate": "2010",
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}{{ site.baseurl }}/img/logo-quality.avif",
+        "width": "179",
+        "height": "75"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Cleaning Excellence Way",
+        "addressLocality": "Columbus",
+        "addressRegion": "OH",
+        "postalCode": "43215",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "39.9612",
+        "longitude": "-82.9988"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cleaning Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Residential Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Regular Cleaning",
+                  "description": "Weekly & bi-weekly maintenance cleaning"
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "129.00",
+                  "priceCurrency": "USD"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Deep Cleaning",
+                  "description": "Comprehensive deep cleaning service"
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "249.00",
+                  "priceCurrency": "USD"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Commercial Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Office Cleaning",
+                  "description": "Professional office cleaning services"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Columbus",
+          "containsPlace": [
+            {
+              "@type": "Neighborhood",
+              "name": "German Village",
+              "@id": "{{ site.url }}{{ site.baseurl }}/areas/german-village"
+            },
+            {
+              "@type": "Neighborhood",
+              "name": "Short North",
+              "@id": "{{ site.url }}{{ site.baseurl }}/areas/short-north"
+            },
+            {
+              "@type": "Neighborhood",
+              "name": "Victorian Village",
+              "@id": "{{ site.url }}{{ site.baseurl }}/areas/victorian-village"
+            }
+          ]
+        }
+      ],
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ site.url }}{{ site.baseurl }}/contact",
+          "inLanguage": "en-US",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "result": {
+          "@type": "Reservation",
+          "name": "Cleaning Service Booking"
+        }
+      }
+    },
+
+    {% case page.layout %}
+    {% when 'post' %}
+    {
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
+      },
+      "headline": "{{ page.title | truncate: 110 }}",
+      "description": "{{ page.description }}",
+      "image": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}{{ site.baseurl }}/{{ page.hero }}",
+        "height": 630,
+        "width": 1200
+      },
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ page.author }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "{{ site.title }}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ site.url }}{{ site.baseurl }}/img/logo-quality.avif",
+          "width": "179",
+          "height": "75"
+        }
+      },
+      "keywords": "{{ page.tags | join: ', ' }}",
+      "wordCount": "{{ page.content | number_of_words }}"
+    }
+    {% when 'service' %}
+    {
+      "@type": ["Service", "Product"],
+      "name": "{{ page.title }}",
+      "description": "{{ page.description }}",
+      "provider": {
+        "@id": "{{ site.url }}{{ site.baseurl }}/#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Columbus"
+      },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "price": "129.00",
+        "priceCurrency": "USD",
+        "validFrom": "{{ current_date }}",
+        "priceValidUntil": "{{ current_date | date: '%Y' }}-12-31"
+      },
+      {% if page.faqs %}
+      "mainEntity": [
+        {% for faq in page.faqs %}
+        {
+          "@type": "Question",
+          "name": "{{ faq.pregunta }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ faq.respuesta }}"
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+      {% endif %}
+    }
+    {% when 'area' %}
+    {
+      "@type": "Place",
+      "name": "{{ page.title }}",
+      "description": "{{ page.description }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ page.title | split: ' - ' | first }}",
+        "addressRegion": "OH",
+        "addressCountry": "US"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Available Services in {{ page.title | split: ' - ' | first }}",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Regular Cleaning",
+              "areaServed": {
+                "@type": "City",
+                "name": "{{ page.title | split: ' - ' | first }}"
+              }
+            }
+          }
+        ]
+      }
+    }
+    {% endcase %}
+  ]
+}
+</script>

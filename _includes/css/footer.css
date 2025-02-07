@@ -1,0 +1,69 @@
+footer{
+  display: grid;
+  gap: 2em;
+  
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  div{
+    display: flex;
+    gap: 2em;
+    margin-inline: auto;
+  }
+}
+
+.footer {
+  width: min(100%, 1922px);
+  margin-inline: auto;
+
+  img{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1922 / 2131;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  }
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--color-primary); /* El amarillo que usas como color principal */
+  color: var(--color-dark); /* Color oscuro para el ícono */
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 99;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-4px);
+  background-color: var(--color-secondary); /* El tono secundario para el hover */
+  box-shadow: var(--shadow-card);
+}
+
+/* Animación suave para el ícono */
+.scroll-to-top svg {
+  transition: transform 0.2s ease;
+}
+
+.scroll-to-top:hover svg {
+  transform: translateY(-2px);
+}
