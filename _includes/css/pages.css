@@ -1,4 +1,58 @@
+.highlighted-title {
+  position: relative;
+  max-width: 720px;
+  margin-bottom: 2em;
+}
 
+.highlighted-title h2 {
+  position: relative;
+  z-index: 2;
+}
+
+.highlighted-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0.2em;
+  left: -6%;
+  width: 420px;
+  height: 65px;
+  background-color: var(--color-secondary);
+  z-index: -1;
+  transform: rotate(-2deg);
+  top: 70px;
+}
+
+.numbered-section .content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.numbered-section {
+  position: relative;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.numbered-section h2 {
+  color: var(--color-primary);
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.background-number {
+  position: absolute;
+  left: 30px;
+  bottom: -8px;
+  font-size: 18rem;
+  font-weight: var(--fw-black);
+  color: rgba(255, 255, 255, 0.24);
+  line-height: 1;
+  z-index: 1;
+}
+
+/*  */
 
 .section-center{
   display: grid;
