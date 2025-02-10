@@ -74,7 +74,7 @@
   <meta name="twitter:description"
     content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   {% if page.webp %}
-  <meta name="twitter:image" content="{{ page.webp | absolute_url }}">
+  <meta name="twitter:image" content="{{ page.jpg | absolute_url }}">
   <meta name="twitter:image:alt" content="{{ page.alt }}">
   {% endif %}
 
@@ -90,20 +90,6 @@
     crossorigin>
   <link rel="preload" as="font" href="{{ 'css/fonts/roboto-v47-latin-regular.woff2' | relative_url }}" type="font/woff2"
     crossorigin>
-
-  <!-- Consent Mode Configuration -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
-  </script>
 
   <!-- Google Tag Manager -->
 
