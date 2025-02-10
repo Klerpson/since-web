@@ -9,12 +9,12 @@
         <span class="mobile-title">Agencia Since Marketing</span>
       </h1>
       <div class="hero-text">
-        <p >¡Hey, bienvenido!</p>
+        <p>¡Hey, bienvenido!</p>
         <p>Seguramente ya sabes a qué se dedica una agencia de marketing.</p>
         <p>Nosotros lo hacemos muy bien...</p>
-        
+
         {% include button.html text= "Clic y empecemos" %}
-        
+
         <div class="services-link">
           <a href="#servicios">Necesitas estos servicios</a>
         </div>
@@ -24,11 +24,16 @@
   <div class="vertical-text"></div>
 </header>
 
-{% when "post" %}
-<header class="wrapper bgr-hero flow header_post">
-  <h1>{{ page.h1 }}</h1>
-  <p>{{ page.excerpt }}</p>
-  <img src="{{ page.hero | relative_url }}" height="680" width="1280" loading="eager" alt="{{page.alt}}">
+{% when "servicios" %}
+<header class="hero-services two_columns">
+  <div>
+    <h1>{{ page.h1 }}</h1>
+    <p>{{ page.excerpt }}</p>
+    {% include button.html text= "Clic y empecemos" %}
+  </div>
+  <div class="img-bottom">
+    <img src="{{ page.img-hero | relative_url }}" width="512" height="512"  loading="eager" alt="{{page.alt}}">
+  </div>
 </header>
 {% else %}
 <header class="header__services">

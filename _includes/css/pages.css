@@ -103,7 +103,7 @@
 .text-left {
   display: grid;
   place-content: flex-end;
-  width: min(100%, 600px);
+  width: min(100%, 700px);
   text-align: right;
   margin-left: auto;
 }
@@ -130,3 +130,9 @@
   overflow: hidden;
 }
 
+/* Contenedor de imagen */
+.img-bottom {
+  position: relative;
+  transform: translateY(20%);
+  z-index: 1;
+}

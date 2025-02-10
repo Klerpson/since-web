@@ -6,6 +6,7 @@ description: >-
   de crecimiento para empresas en Latinoamérica.
 baseurl: ""
 url: "https://since.com"
+lang: "es"
 
 # Redes sociales
 social:
@@ -42,37 +43,12 @@ compress_html:
 collections:
   redirects:
     output: true
-  specialized:
+  servicios:
     output: true
     permalink: /servicios/:path
-  commercial:
+  nosotros:
     output: true
     permalink: /nosotros/:path
-  residential:
+  informacion:
     output: true
     permalink: /informacion/:path
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      schema: "BlogPosting"
-  - scope:
-      path: ""
-      type: "servicios"
-    values:
-      layout: "servicio"
-      schema: "Service"
-  - scope:
-      path: ""
-      type: "nosotros"
-    values:
-      layout: "nosotros"
-  - scope:
-      path: ""
-      type: "informacion"
-    values:
-      layout: "informacion"

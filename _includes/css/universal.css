@@ -1,4 +1,3 @@
-
 h4 {
   font-size: clamp(1.25rem, 2vw, 1.75rem);
   color: var(--grey-1);
@@ -13,7 +12,7 @@ h5 {
 
 ol li {
   margin-left: 3em;
-  list-style: decimal;
+  list-style: none;
 }
 
 ::marker {
@@ -23,15 +22,15 @@ ol li {
 }
 
 hr {
-  border: none; 
+  border: none;
   height: 2px;
-  max-width: 1200px; 
-  width: 90%; 
+  max-width: 1200px;
+  width: 90%;
   background: linear-gradient(
     to right,
     var(--color-accent),
     var(--color-complement)
-  ); 
+  );
   margin: 2rem auto;
 }
 
@@ -63,12 +62,12 @@ table th {
 }
 
 .bgr_cta {
-  background: rgb(0, 9, 4);
+  background: rgb(221, 179, 8);
   background: linear-gradient(
-    292deg,
-    rgba(0, 9, 4, 1) 0%,
-    rgba(11, 152, 103, 1) 100%,
-    rgba(6, 241, 124, 0.8603816526610644) 100%
+    196deg,
+    rgba(221, 179, 8, 1) 0%,
+    rgba(221, 179, 8, 1) 52%,
+    rgba(8, 8, 7, 1) 95%
   );
 
   h2 {
@@ -95,10 +94,8 @@ table th {
   justify-content: space-around;
   align-items: center;
 
-  
-
   & > div {
-    flex: 1 0 280px; 
+    flex: 1 0 280px;
     max-width: 600px;
   }
 }
@@ -118,9 +115,7 @@ table th {
   & > div {
     position: relative;
     width: min(100%, 376px);
-    text-align: center;
     display: grid;
-    gap: 2em;
     place-items: center;
     border-radius: var(--radius-cards);
     overflow: hidden;
@@ -149,4 +144,9 @@ table th {
   margin-inline: auto;
   text-align: center;
   margin-bottom: 4em;
+}
+
+.lista-desordenada li {
+  color: var(--text-primary);
+  list-style-type: disc;
 }

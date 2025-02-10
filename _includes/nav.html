@@ -13,25 +13,25 @@
 
     <ul class="navegacion">
       <li class="has-submenu">
-        <a href="#" class="toggle-arrow">
+        <a href="{{ '/servicios' | relative_url }}" class="toggle-arrow">
           Servicios
-          
+          <svg aria-hidden="true" class="arrow-icon" width="12" height="12" viewBox="0 0 12 12">
+            <path d="M2 4l4 4 4-4"/>
+          </svg>
         </a>
         <div class="submenu-wrapper">
           <ul class="submenu">
-            <a href="{{ 'servicios/marketing' | relative_url }}" role="menuitem">Marketing digital</a>
-            <li><a href="#">Marketing digital</a></li>
-            <li><a href="#">Redes sociales</a></li>
-            <li><a href="#">SEO</a></li>
-            <li><a href="#">Páginas web</a></li>
-            <li><a href="#">Publicidad digital</a></li>
-            <li><a href="#">Diseño gráfico</a></li>
-            <li><a href="#">Gerencia marketing</a></li>
-            
-
+            <li><a href="{{ '/servicios/marketing-digital' | relative_url }}">Marketing digital</a></li>
+            <li><a href="{{ 'servicios/redes-sociales' | relative_url }}">Redes sociales</a></li>
+            <li><a href="{{ 'servicios/seo' | relative_url }}">SEO</a></li>
+            <li><a href="{{ 'servicios/paginas-web' | relative_url }}">Páginas web</a></li>
+            <li><a href="{{ 'servicios/publicidad-digital' | relative_url }}">Publicidad digital</a></li>
+            <li><a href="{{ 'servicios/diseno-grafico' | relative_url }}">Diseño gráfico</a></li>
+            <li><a href="{{ 'servicios/gerencia-marketing' | relative_url }}">Gerencia marketing</a></li>
           </ul>
         </div>
       </li>
+
       <li class="has-submenu">
         <a href="#" class="toggle-arrow">
           Nosotros
