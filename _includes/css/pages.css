@@ -135,3 +135,29 @@
   transform: translateY(20%);
   z-index: 1;
 }
+
+.experience-container{
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 100vmax var(--color-primary);
+  -webkit-clip-path: inset(0 -100vmax);
+          clip-path: inset(0 -100vmax);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 100%;
+  padding: 2rem 0;
+}
+.experience-item{
+  width: min(100%, 200px);
+  text-align: center;
+  
+  h3{
+    color: var(--text-black);
+    margin: 0;
+  }
+  p{
+    color: var(--text-black);
+    margin: 0;
+  }
+}
+
