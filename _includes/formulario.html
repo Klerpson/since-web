@@ -1,90 +1,68 @@
-<section class="wrapper">
-  <div class="two_columns ">
-    <div class="highlighted-title">
-      <h2>
-        Cuenta con la Agencia de Marketing Digital Since en Latinoamerica
-      </h2>
-      
-      <p>¡Ahora te toca tomar acción!</p>
-      
-      <p>Si estás buscando los precios más económicos o una formula mágica que te genere resultados de un día para otro.</p>
-      
-      <p style="font-size: 1.25rem; font-weight: var(--fw-bold);">
-        Nuestros servicios no son para ti.
-      </p>
-      
-      <p>Pero si lo que buscas es invertir en profesionales experimentados y en métodos poco usados, pero que funciona.</p>
-      
-      <p>Es aquí 👉</p>
-    </div>
+<form action="{{ site.form_endpoint }}" method="POST" style="max-width: 400px; width: 100%;">
+  <div style="display: grid; gap: 1rem;">
+    <input 
+      type="text" 
+      name="nombre" 
+      placeholder="Nombre"
+      required
+      style="
+        width: 100%;
+        padding: 1rem;
+        background-color: transparent;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--color-primary);
+        color: var(--text-primary);
+      "
+    >
+    
+    <input 
+      type="email" 
+      name="correo"
+      placeholder="Correo"
+      required
+      style="
+        width: 100%;
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--color-primary);
+        color: var(--text-primary);
+        background-color: transparent;
 
-    <form action="{{ site.form_endpoint }}" method="POST" style="max-width: 400px; width: 100%;">
-      <div style="display: grid; gap: 1rem;">
-        <input 
-          type="text" 
-          name="nombre" 
-          placeholder="Nombre"
-          required
-          style="
-            width: 100%;
-            padding: 1rem;
-            background-color: transparent;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--color-primary);
-            color: var(--text-primary);
-          "
-        >
-        
-        <input 
-          type="email" 
-          name="correo"
-          placeholder="Correo"
-          required
-          style="
-            width: 100%;
-            padding: 1rem;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--color-primary);
-            color: var(--text-primary);
-            background-color: transparent;
+      "
+    >
+    
+    <input 
+      type="tel" 
+      name="celular"
+      placeholder="Celular"
+      required
+      style="
+        width: 100%;
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--color-primary);
+        color: var(--text-primary);
+        background-color: transparent;
 
-          "
-        >
-        
-        <input 
-          type="tel" 
-          name="celular"
-          placeholder="Celular"
-          required
-          style="
-            width: 100%;
-            padding: 1rem;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--color-primary);
-            color: var(--text-primary);
-            background-color: transparent;
+      "
+    >
+    
+    <textarea 
+      name="asunto"
+      placeholder="Asunto"
+      rows="4"
+      required
+      style="
+        width: 100%;
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--color-primary);
+        color: var(--text-primary);
+        background-color: transparent;
+        resize: none;
+      "
+    ></textarea>
 
-          "
-        >
-        
-        <textarea 
-          name="asunto"
-          placeholder="Asunto"
-          rows="4"
-          required
-          style="
-            width: 100%;
-            padding: 1rem;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--color-primary);
-            color: var(--text-primary);
-            background-color: transparent;
-            resize: none;
-          "
-        ></textarea>
-
-        {% include button.html text= "Envia tus datos" %}
-      </div>
-    </form>
+    {% include button.html text= "Envia tus datos" %}
   </div>
-</section>
+</form>

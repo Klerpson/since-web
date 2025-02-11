@@ -1,7 +1,7 @@
 ---
 layout: compress
 ---
-@charset "UTF-8";layoutlayoutlayoutlayoutlayoutlayoutlayout
+@charset "UTF-8";layoutlayoutlayoutlayoutlayoutlayoutlayoutlayout
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Roboto';
@@ -28,4 +28,5 @@ layout: compress
 {% include css/universal.css %}
 {% include css/pages.css %}
 {% include css/buttons.css %}
+{% include css/testimonios.css %}
 {% include css/footer.css %}

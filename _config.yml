@@ -46,9 +46,4 @@ collections:
   servicios:
     output: true
     permalink: /servicios/:path
-  nosotros:
-    output: true
-    permalink: /nosotros/:path
-  informacion:
-    output: true
-    permalink: /informacion/:path
+

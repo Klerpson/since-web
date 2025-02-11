@@ -1,0 +1,62 @@
+.testimonios {
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.tarjetas-wrapper {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
+  width: min(100%, 1200px);
+  margin-inline: auto;
+}
+
+.tarjeta-testimonio {
+  flex: 1 1 min(100%, 500px);
+  background-color: #000;
+  border-radius: 2rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  position: relative;
+  border: 1px solid #FFD700;
+  overflow: hidden;
+}
+
+.tarjeta-testimonio::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 2rem;
+  padding: 1px;
+  background: linear-gradient(45deg, #FFD700, transparent);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.header-testimonio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logo-rating {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.estrellas {
+  color: #FFD700;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  letter-spacing: 2px;
+}
+
+.imagen-testimonio {
+  -o-object-fit: cover;
+     object-fit: cover;
+}

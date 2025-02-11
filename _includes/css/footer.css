@@ -1,4 +1,7 @@
 footer{
+  background-image: url("../img/footer-bg.avif");
+  background-size: cover;
+  background-position: center;
   display: grid;
   gap: 2em;
   

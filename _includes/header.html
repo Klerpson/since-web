@@ -32,22 +32,22 @@
     {% include button.html text= "Clic y empecemos" %}
   </div>
   <div class="img-bottom">
-    <img src="{{ page.img-hero | relative_url }}" width="512" height="512"  loading="eager" alt="{{page.alt}}">
+    <img src="{{ page.img-hero | relative_url }}" width="512" height="512" loading="eager" alt="{{page.alt}}">
   </div>
 </header>
-{% else %}
-<header class="header__services">
-  <div class="wrapper two_columns bgr-hero">
-    <div class="header__home--text">
-      <h1>{{ page.h1 }}</h1>
-      <h2>{{ page.h2 }}</h2>
-      <p>{{ page.excerpt }}</p>
-      {% if page.button %}
-      {% include button.html text="Take our service →" %}
-      {% endif %}
-    </div>
 
-    <img src="{{ page.hero | relative_url }}" height="600" width="600" alt="{{page.alt}}" loading="eager">
+{% else %}
+
+<header class="hero-services">
+  
+  <div class="wrapper header">
+    <h1>{{ page.h1 }}</h1>
+    <h2>{{ page.h2 }}</h2>
+    <p>{{ page.excerpt }}</p>
+    {% if page.button %}
+    {% include button.html text="Take our service →" %}
+    {% endif %}
   </div>
+
 </header>
 {% endcase %}
