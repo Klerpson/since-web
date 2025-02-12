@@ -1,0 +1,97 @@
+---
+layout: general
+hero_image: /img/since-contacto.avif
+h1: Contacta nuestra agencia de marketing digital en Colombia
+button: true
+testimonios:
+  - title: Sección de testimonios
+    image: team-since-marketin-digital.avif
+    alt: Testimonio 1
+  - title: Sección de testimonios
+    image: team-since-marketin-digital.avif
+    alt: Testimonio 2
+---
+
+<section class="wrapper">
+  <div class="two_columns ">
+    <div class="highlighted-title">
+      <h2>
+        Cuenta con la Agencia de Marketing Digital Since en Latinoamerica
+      </h2>
+
+      <p>Lorem Ipsum is simply dummy
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. a fwan iua nas fisuadnfiu fnuw fwef
+        in fsn f iunaiuf iua iunc iuwe cb aiufb is fiuy Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. </p>
+
+      <p>Lorem Ipsum is simply dummy
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. a fwan iua nas fisuadnfiu fnuw fwef
+        in fsn f iunaiuf iua iunc iuwe cb aiufb is fiuy Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. </p>
+
+    </div>
+    {% include formulario.html %}
+
+  </div>
+</section>
+
+<section class="wrapper highlighted-title text_center">
+  <h2>
+    Cuenta con la Agencia de Marketing Digital Since en Latinoamerica
+  </h2>
+</section>
+
+<section class="bgr_cta">
+  <div class="wrapper">
+    <div class="contact-circles">
+      {% assign contacts = "
+      tel:300000000|phone-icon.avif|300 000 0000|Teléfono,
+      https://wa.me/573000000000|whatsapp-icon.avif|+57 300 000 0000|WhatsApp,
+      mailto:contacto@sincemarketing.com|email-icon.avif|contacto@sincemarketingditial.com|Email
+      " | split: "," %}
+
+      {% for contact in contacts %}
+      {% assign info = contact | split: "|" %}
+      <div class="contact-overlay">
+        <img src="{{ info[1] | prepend: 'img/' | relative_url }}" width="128" height="128" alt="{{ info[3] }}"
+          class="contact-circle">
+        <a href="{{ info[0] }}" class="contact-link">{{ info[2] }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="two_columns wrapper">
+  <div class="highlighted-title">
+    <h3>
+      Lorem Ipsum is simply dummy
+    </h3>
+
+    <p>Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text of the printing and typesetting industry. a fwan iua
+      nas fisuadnfiu fnuw fwef in fsn f iunaiuf iua iunc iuwe cb aiufb is fiuy Lorem Ipsum is simply dummy text of the
+      printing and typesetting industry. </p>
+
+    <p>Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text of the printing and typesetting industry. a fwan iua
+      nas fisuadnfiu fnuw fwef in fsn f iunaiuf iua iunc iuwe cb aiufb is fiuy Lorem Ipsum is simply dummy text of the
+      printing and typesetting industry. </p>
+  </div>
+  <div class="highlighted-title">
+    <h3>
+      Lorem Ipsum is simply dummy
+    </h3>
+
+    <p>Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text of the printing and typesetting industry. a fwan iua
+      nas fisuadnfiu fnuw fwef in fsn f iunaiuf iua iunc iuwe cb aiufb is fiuy Lorem Ipsum is simply dummy text of the
+      printing and typesetting industry. </p>
+
+    <p>Lorem Ipsum is simply dummy Lorem Ipsum is simply dummy text of the printing and typesetting industry. a fwan iua
+      nas fisuadnfiu fnuw fwef in fsn f iunaiuf iua iunc iuwe cb aiufb is fiuy Lorem Ipsum is simply dummy text of the
+      printing and typesetting industry. </p>
+  </div>
+</section>
+<div class="text_center wrapper">
+  {% include button.html text= "Clic y empezamos!" %}
+</div>
+
+{% include testimonios.html testimonials=page.testimonios %}

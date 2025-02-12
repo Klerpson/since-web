@@ -36,6 +36,16 @@
   </div>
 </header>
 
+{% when "blog" %}
+<header class="hero-services">
+  <div class="wrapper">
+    <div class="hero-content-bottom">
+      <div class="text_center">
+        <h1>{{ page.h1 }}</h1>
+      </div>
+    </div>
+  </div>
+</header>
 {% else %}
 
 <header class="hero-services">
@@ -45,7 +55,7 @@
     <h2>{{ page.h2 }}</h2>
     <p>{{ page.excerpt }}</p>
     {% if page.button %}
-    {% include button.html text="Take our service →" %}
+    {% include button.html text="Clic y empecemos" %}
     {% endif %}
   </div>
 

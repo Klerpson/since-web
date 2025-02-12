@@ -1,25 +1,19 @@
-<section class="testimonios">
+<!-- _includes/testimonios.html -->
+<section class="testimonios wrapper">
   <div class="tarjetas-wrapper">
-    <div class="tarjeta-testimonio">
-      <div class="header-testimonio">
-        <div class="logo-rating">
-          <img src="{{ 'img/since-icon.avif' | relative_url }}" alt="Since Logo" class="logo" width="40" height="40">
-          <div class="estrellas">★★★★★</div>
+    {% for testimonial in include.testimonials %}
+      <div class="tarjeta-testimonio">
+        <div class="contenido-testimonio">
+          <div class="header-testimonio">
+            <img src="{{ 'img/since-icon.avif' | relative_url }}" alt="Since Logo" width="40" height="40" class="logo">
+            <div class="estrellas">★★★★★</div>
+          </div>
+          <h3>{{ testimonial.title }}</h3>
         </div>
+        <img src="{{ testimonial.image | prepend: 'img/' | relative_url }}" 
+             alt="{{ testimonial.alt }}" 
+             class="imagen-testimonio">
       </div>
-      <h3>Sección de testimonios</h3>
-      <img src="{{ 'img/team-since-marketin-digital.avif' | relative_url }}" alt="Testimonio 1" class="imagen-testimonio" width="180" height="180">
-    </div>
-
-    <div class="tarjeta-testimonio">
-      <div class="header-testimonio two_columns">
-        <div class="logo-rating">
-          <img src="{{ 'img/since-icon.avif' | relative_url }}" alt="Since Logo" class="logo" width="40" height="40">
-          <div class="estrellas">★★★★★</div>
-        </div>
-      </div>
-      <h3>Sección de testimonios</h3>
-      <img src="{{ 'img/team-since-marketin-digital.avif' | relative_url }}" alt="Testimonio 2" class="imagen-testimonio" width="180" height="180">
-    </div>
+    {% endfor %}
   </div>
 </section>

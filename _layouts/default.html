@@ -15,6 +15,35 @@ layout: compress
   {{ content }}
   {% include footer.html %}
 
+  <!-- animaciones -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const animatedElements = document.querySelectorAll('.animate-element');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('is-hidden');
+        requestAnimationFrame(() => {
+          entry.target.classList.add('is-visible');
+        });
+      } else {
+        entry.target.classList.remove('is-visible');
+        entry.target.classList.add('is-hidden');
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '50px',
+  });
+
+  animatedElements.forEach(element => {
+    element.classList.add('is-hidden');
+    observer.observe(element);
+  });
+});
+  </script>
+
   <!-- scrool top -->
   <button id="scroll-to-top" class="scroll-to-top" aria-label="Volver arriba">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

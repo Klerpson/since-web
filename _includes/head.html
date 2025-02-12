@@ -469,13 +469,19 @@
     .hero-services {
       position: relative;
       padding-top: 80px;
-      min-height: 70vh;
+      min-height: 80vh;
       max-height: 900px;
       background-image: url('{{ page.hero_image | relative_url }}');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       overflow: visible;
+    }
+
+    .hero-content-bottom {
+      min-height: 80vh;
+      display: grid;
+      align-content: end;
     }
 
     .header h1,
