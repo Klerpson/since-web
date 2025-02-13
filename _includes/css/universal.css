@@ -17,8 +17,8 @@ ol li {
 
 ::marker {
   font-size: 2rem;
-  color: var(--color-secundario);
-  font-family: var(--fuente);
+  color: var(--text-primary);
+  font-family: var(----font);
 }
 
 hr {
