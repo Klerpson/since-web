@@ -37,8 +37,8 @@ footer{
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background-color: var(--color-primary); /* El amarillo que usas como color principal */
-  color: var(--color-dark); /* Color oscuro para el ícono */
+  background-color: var(--color-primary);
+  color: var(--color-dark); 
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -59,11 +59,10 @@ footer{
 
 .scroll-to-top:hover {
   transform: translateY(-4px);
-  background-color: var(--color-secondary); /* El tono secundario para el hover */
+  background-color: var(--color-secondary);
   box-shadow: var(--shadow-card);
 }
 
-/* Animación suave para el ícono */
 .scroll-to-top svg {
   transition: transform 0.2s ease;
 }

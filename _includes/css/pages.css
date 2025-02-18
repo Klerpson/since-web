@@ -53,16 +53,19 @@
 
 .highlight-card {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 2rem;
   padding: 2em;
-  width: min(100% - 2rem, 1000px);
+  max-width: min(100% - 2rem, 1000px);
   margin-inline: auto;
   border: 0.5rem solid var(--color-primary);
   border-radius: var(--radius-lg);
 }
 
-
+.card-content {
+  flex: 1 1 300px;
+}
 
 .logo-rating {
   display: flex;
@@ -72,7 +75,16 @@
 
 .stars {
   color: var(--color-primary);
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+
+.team-img-card {
+  flex: 1 1 300px;
+  width: 100%;
+  height: auto; 
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: var(--radius-lg);
 }
 .space-services {
   background-image: url("../img/space-bg.avif");
@@ -192,58 +204,38 @@
   color: var(--text-black);
 }
 
-/* Estilos base para elementos animados */
-.scroll-animations {
-  /* Estilos base para elementos animados */
-  .animate-element {
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-    will-change: transform, opacity;
-  }
-
-  /* Posiciones iniciales */
-  .slide-from-left {
-    transform: translateX(-100px);
-  }
-
-  .slide-from-right {
-    transform: translateX(100px);
-  }
-
-  /* Estado visible */
-  .is-visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  /* Estado oculto */
-  .is-hidden.slide-from-left {
-    transform: translateX(-100px);
-  }
-
-  .is-hidden.slide-from-right {
-    transform: translateX(100px);
-  }
-  .is-hidden.slide-from-right {
-    transform: translateX(100px);
-  }
-
-  /* Ajustes para secciones numeradas */
-  .numbered-section {
-    position: relative;
-    transform: translateX(-50px);
-    transition-delay: calc(var(--section-index, 0) * 0.2s);
-  }
-
-  .numbered-section:nth-of-type(1) { --section-index: 1; }
-  .numbered-section:nth-of-type(2) { --section-index: 2; }
-  .numbered-section:nth-of-type(3) { --section-index: 3; }
-
-  .numbered-section.is-visible {
-    transform: translateX(0);
-  }
+/* Estilos base para animaciones */
+.scroll-animations .animate-element {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
 }
 
+/* Posiciones iniciales */
+.scroll-animations .slide-from-left {
+  transform: translateX(-50px);
+}
+
+.scroll-animations .slide-from-right {
+  transform: translateX(50px);
+}
+
+/* Estado visible */
+.scroll-animations .is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Ajustes para secciones numeradas */
+.scroll-animations .numbered-section {
+  position: relative;
+  transition-delay: calc(var(--section-index, 0) * 0.15s);
+}
+
+.scroll-animations .numbered-section:nth-of-type(1) { --section-index: 1; }
+.scroll-animations .numbered-section:nth-of-type(2) { --section-index: 2; }
+.scroll-animations .numbered-section:nth-of-type(3) { --section-index: 3; }
 
 /*  */
 .bg-blog {
